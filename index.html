@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FFFBE4;
+  font-family: "Amiri", serif;
+  text-align: center;
+}
+
+h1 {
+  font-size: 4rem;
+  color: #C47037;
+  margin-top: 12rem;
+}
+@media (max-width: 760px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: auto;
+}
+
+h2 {
+  color: #C47037;
+  line-height: 1.2;
+  font-size: 2rem;
+}
+
+h3 {
+  color: #808080;
+}
+
+h2 {
+  color: #C47037;
+}
+
+.other_heading {
+  margin: 4rem 0;
+}
+@media (max-width: 760px) {
+  .other_heading {
+    margin: 2rem 0;
+  }
+}
+
+.quiz {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+.quiz__container {
+  width: 100%;
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+@media (max-width: 760px) {
+  .quiz__container {
+    padding: 1rem;
+  }
+}
+.quiz__nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.quiz__other_logos img {
+  height: 4rem;
+  width: auto;
+  margin-left: 2rem;
+}
+@media (max-width: 760px) {
+  .quiz__other_logos img {
+    height: 2.5rem;
+    margin-left: 1rem;
+  }
+}
+.quiz__blfan_logo img {
+  height: 6rem;
+  width: auto;
+}
+@media (max-width: 760px) {
+  .quiz__blfan_logo img {
+    height: 3.5rem;
+  }
+}
+.quiz__answer_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  position: relative;
+}
+.quiz__answer_container button {
+  padding: 10px 70px;
+  background-color: #D7C34B;
+  border: none;
+  font-size: 32px;
+  border-radius: 5px;
+}
+@media (max-width: 760px) {
+  .quiz__answer_container button {
+    padding: 20px 30px;
+    font-size: 16px;
+    min-width: 100px;
+  }
+}
+.quiz__answer_button_container {
+  position: relative;
+  margin: 3rem 1rem 0 1rem;
+}
+.quiz__answer_button_container:hover {
+  cursor: pointer;
+}
+.quiz__answer_button_container:hover .quiz__answer_shadow {
+  display: none;
+}
+.quiz__answer_button_container:hover button {
+  background-color: #C47037;
+  color: #ffffff;
+}
+@media (max-width: 760px) {
+  .quiz__answer_button_container {
+    margin-left: 0;
+  }
+}
+.quiz__answer_shadow {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+  background-color: #000000;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  margin: 6px 0 0 6px;
+}
+@media (max-width: 760px) {
+  .quiz__answer_shadow {
+    margin: 6px 0 0 6px;
+  }
+}
+.quiz__decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  max-height: 100vh;
+  z-index: -4;
+}
+@media (max-width: 760px) {
+  .quiz__decoration {
+    width: 50%;
+    height: auto;
+  }
+}
+.quiz__statement:hover a {
+  color: #C47037;
+}
+.quiz__statement a {
+  display: none;
+  text-decoration: none;
+  font-size: 2rem;
+  color: #F0901D;
+  padding: 10px;
+  margin: 0 0 4rem 0;
+  margin-left: 0 1rem;
+}
+@media (max-width: 760px) {
+  .quiz__statement a {
+    font-size: 1.2rem;
+    margin: 0 0 1rem 0;
+  }
+}
+.quiz__statement p {
+  max-width: 700px;
+  display: none;
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #F0901D;
+  padding: 10px;
+  margin: 0 0 4rem 0;
+  margin-left: 0 1rem;
+}
+.quiz__statement p a {
+  margin: 0;
+  padding: 0;
+  color: #808080;
+}
+@media (max-width: 760px) {
+  .quiz__statement p {
+    font-size: 1rem;
+    margin: 0 0 1rem 0;
+  }
+}
+.quiz__back_button {
+  display: none;
+  margin-top: 2rem;
+}
+    </style>
+</head>
+<body>
+    <section class="quiz">
+        <div class="quiz__container">
+            <div class="quiz__nav">
+                <div class="quiz__blfan_logo" link="/">
+                    <a href="/"><img src="https://res.cloudinary.com/dvvsyxugn/image/upload/v1686906595/B_LFAN_LOGO_1_ydflz1.png" alt="B'LFAN logo"></a>               
+                </div>
+                <div class="quiz__other_logos">
+                    <img src="https://res.cloudinary.com/dvvsyxugn/image/upload/v1671176420/Logo_Connect_Institute_xekz32.png"" alt="Connect Institute logo">
+                    <img src="https://res.cloudinary.com/dvvsyxugn/image/upload/v1671176406/Logo_-_ACT_School_cki9cj.png" alt="ACT School logo">
+                    <img src="https://res.cloudinary.com/dvvsyxugn/image/upload/v1671176435/Logo_UM6P_ttl8vg.png" alt="UM6P logo">
+                    
+                </div>
+            </div>
+            <div class="quiz__question_container">
+                
+                    <h1 class="quiz_question" id="question">تعلمتي شي حاجة اليوم؟</h1>
+                    <div class="quiz__statement">
+                        <a href="/citations1.html" id="read">(يمكن لك تبدا بكتاب)</a>
+                        <p id="write"><a href="ouino.actschool.ma" id="write1">ouino.actschool.ma</a><br/>"وينو" هي منصة كتجمع أشخاص مهتمين بتدوين ومشاركة الأفكار ديالهم.</p>
+                        
+                        
+                        <a href="https://lematin.ma/express/2023/pirls-2021-maroc-bas-lechelle/390001.html" target="_blank" id="states">(مصدر المعلومة)</a>
+                    </div>
+                
+                <div class="quiz__answer_container" id="gap">
+                    <div class="quiz__answer_button_container">
+                        <button class="quiz__answer_button" id="choice2Button"><p id="choice2">لا</p></button>
+                        <div class="quiz__answer_shadow" ></div>
+                    </div> 
+                    <div class="quiz__answer_button_container" >
+                        <button class="quiz__answer_button" id="choice1Button"><p id="choice1">نعم</p></button>
+                        <div class="quiz__answer_shadow"></div>
+                    </div>
+                        
+                </div>
+                <a href="" class="quiz__back_button" id="back">
+                    <img src="https://res.cloudinary.com/dvvsyxugn/image/upload/v1687299965/icons8-reload-50_1_kyg9no.png" alt="back">
+                </a>
+            
+            <div class="quiz_social_container">
+                <div class="quiz__social_logo_container">
+                    <div class="quiz__social_logo_innercontainer">
+                        <img src="" alt="" class="quiz__social_logo">
+                    </div>
+                </div>
+                <div class="quiz__social_logo_container">
+                    <div class="quiz__social_logo_innercontainer">
+                        <img src="" alt="" class="quiz__social_logo">
+                    </div>
+                </div>
+                <div class="quiz__social_logo_container">
+                    <div class="quiz__social_logo_innercontainer">
+                        <img src="" alt="" class="quiz__social_logo">
+                    </div>
+                </div>
+                <div class="quiz__social_logo_container">
+                    <div class="quiz__social_logo_innercontainer">
+                        <img src="" alt="" class="quiz__social_logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="https://res.cloudinary.com/dvvsyxugn/image/upload/v1686932659/B_LFAN_LOGO_2_2_s0lezj.png" alt="decoration" class="quiz__decoration">
+    </section>
+    <script>
+        let question = document.getElementById('question');
+let choice1 = document.getElementById('choice1');
+let choice2 = document.getElementById('choice2');
+let backButton= document.getElementById('back');
+
+
+
+
+let read = document.getElementById('read');
+let write = document.getElementById('write');
+let write1 = document.getElementById('write1');
+let states = document.getElementById('states');
+
+let choice1Button = document.getElementById('choice1Button');
+let choice2Button = document.getElementById('choice2Button');
+
+document.addEventListener("DOMContentLoaded", function() {
+    const accordionItems = document.querySelectorAll(".accordion-item");
+  
+    accordionItems.forEach(item => {
+      const toggle = item.querySelector(".accordion-toggle");
+      const content = item.querySelector(".accordion-content");
+  
+      toggle.addEventListener("click", function() {
+        const isOpen = content.classList.contains("show");
+  
+        closeAllAccordions(); // Close all accordions before opening the current one
+  
+        if (!isOpen) {
+          content.classList.add("show");
+          toggle.classList.add("collapsed");
+        }
+      });
+    });
+  
+    function closeAllAccordions() {
+      accordionItems.forEach(item => {
+        const toggle = item.querySelector(".accordion-toggle");
+        const content = item.querySelector(".accordion-content");
+  
+        content.classList.remove("show");
+        toggle.classList.remove("collapsed");
+      });
+    }
+  });
+
+function buttonClickYes() {
+    if (question.textContent == "تعلمتي شي حاجة اليوم؟") {
+        question.textContent = "تبغي تشارك معانا آش تعلمتي؟";
+        backButton.style.display  = "inline-block"
+        choice2.textContent = "مكنعرفش نكتب"
+        backButton.style.display  = "inline-block"
+    } else if (question.textContent == "تبغي تشارك معانا آش تعلمتي؟") {
+        question.textContent = "تقدر تبدا تكتب أفكارك وتنظمها يكفي تدخل لهاد الموقع";
+        choice1Button.style.display = 'none'
+        choice2Button.style.display = 'none'
+        backButton.style.display  = "inline-block"
+        backButton.style.display  = "inline-block"
+        write.style.display = 'inline-block'
+        backButton.style.display  = "inline-block"
+        write1.style.display = 'inline-block'
+    } else if (question.textContent == "واش مهتم تعلم حوايج جداد؟") {
+        question.textContent = "بزاف ديال المفكرين والشخصيات مستعدين يعاونوك";
+        choice1.textContent = "كيفاش؟"
+        choice2Button.style.display = 'none'
+        backButton.style.display  = "inline-block"
+    } else if (question.textContent == "تقدر تبدا تقرا باش تعلم تكتب" || question.textContent == " تبغي تكتاشف تجارب مختلفة لي تخليك تفهم نفسك وتحسن من مستقبلك؟" || question.textContent == "بزاف ديال المفكرين والشخصيات مستعدين يعاونوك") {
+        question.textContent = "";
+        choice1Button.style.display = 'none'
+        backButton.style.display  = "inline-block"
+        choice2Button.style.display = 'none'
+        read.style.display = 'inline-block'
+    } else if (question.textContent == "" || 
+        question.textContent == "تقدر تبدا تكتب أفكارك وتنظمها يكفي تدخل لهاد الموقع" ||
+        question.textContent ==  " المغرب يحتل الرتبة 56 من أصل 57 بلاد شاركت فدراسة لقياس تقدم مستوى القراءة في العالم" ||
+        question.textContent == " المغرب يحتل الرتبة 56 من أصل 57 بلاد شاركت فدراسة لقياس تقدم مستوى القراءة في العالم")
+    {
+        question.textContent = "تعلمتي شي حاجة اليوم؟"
+        choice2Button.style.display = 'inline-block'
+        choice1.textContent = "نعم"
+        choice2.textContent = "لا"
+        states.style.display = 'none'
+        read.style.display = 'none'
+        write.style.display = 'none'
+        write1.style.display = 'none'
+        backButton.style.display  = "inline-block"
+
+    }
+}
+
+function buttonClickNo() {
+    if (question.textContent == "تعلمتي شي حاجة اليوم؟") {
+        question.textContent = "واش مهتم تعلم حوايج جداد؟";
+    } else if (question.textContent == "واش مهتم تعلم حوايج جداد؟") {
+        question.textContent = " تبغي تكتاشف تجارب مختلفة لي تخليك تفهم نفسك وتحسن من مستقبلك؟";
+    } else if (question.textContent == " تقدر تبدا تكتب أفكارك وتنظمها") {
+        question.textContent = " المغرب يحتل الرتبة 56 من أصل 57 بلاد شاركت فدراسة لقياس تقدم مستوى القراءة في العالم" ;
+        states.style.display = 'inline-block'
+    } else if (question.textContent == "تبغي تشارك معانا آش تعلمتي؟") {
+        question.textContent = "تقدر تبدا تقرا باش تعلم تكتب";
+        choice1.textContent = "فين نلقى لكُتب"
+        choice2.textContent = "معنديش مع القراية"
+        backButton.style.display  = "inline-block"
+    } else if(question.textContent == "تقدر تبدا تقرا باش تعلم تكتب"){
+        question.textContent= ".المغرب يحتل الرتبة 56 من أصل 57 بلاد شاركت فدراسة لقياس تقدم مستوى القراءة في العالم"
+        choice1Button.style.display = 'none'
+        backButton.style.display  = "inline-block"
+        choice2Button.style.display = 'none'
+        states.style.display = 'inline-block'
+    }
+    else if (question.textContent == " تبغي تكتاشف تجارب مختلفة لي تخليك تفهم نفسك وتحسن من مستقبلك؟"){
+        question.textContent = ".المغرب يحتل الرتبة 56 من أصل 57 بلاد شاركت فدراسة لقياس تقدم مستوى القراءة في العالم"
+        choice1Button.style.display = 'none'
+        choice2Button.style.display = 'none'
+        states.style.display = 'inline-block'
+        backButton.style.display  = "inline-block"
+    }
+}
+
+choice1Button.addEventListener("click", buttonClickYes);
+choice2Button.addEventListener("click", buttonClickNo);
+
+
+    </script>
+</body>
+</html>
